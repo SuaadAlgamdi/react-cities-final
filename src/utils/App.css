@@ -1,0 +1,80 @@
+* {
+    font-family: Roboto, sans-serif !important;
+} 
+
+
+.welcome {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: darkred;
+    text-shadow: 2px 2px 5px black;
+    font-size: 100px;
+    font-family: fantasy;
+    margin-top: 100px;
+    position: relative;
+  
+  
+  }
+  
+  .wave {
+    height: 200px;
+    border-radius: 90%;
+  }
+  
+  .signup-contaner>form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    margin: 100px;
+    margin-top: 0ex;
+    gap: 30px;
+  
+  
+  
+  
+  
+  
+  
+  }
+  
+  .wave {
+    height: 200px;
+    border-radius: 90%;
+  }
+  
+  .signup-contaner>form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    margin: 100px;
+    margin-top: 0ex;
+    gap: 30px;
+  
+  
+  
+  
+  
+  
+  
+  }
+  
+  .backsignup {
+    opacity: .6;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    color:rgb(178, 178, 190)
+  
+  
+  
+  }
+
+  
+  
