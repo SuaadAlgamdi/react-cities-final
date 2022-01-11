@@ -10,22 +10,22 @@ function LogIn() {
       <img className="backsignup" />
 
       <div className="signup-contaner">
-        <form onSubmit={login}>
+        <form  onSubmit={login}>
           <img alt="" className="wave" />
-
+           <h2 style={{color:"white",fontSize:"30px", fontWeight:"800"}} >Login</h2>
           <div className="input-div">
-            <h5>Email</h5>
-            <input type="email" name="email" class="input" required />
+            <h5 style={{color:"white",fontSize:"30px", fontWeight:"800"}} >Email</h5>
+            <input type="email" name="email" class="input" required placeholder="Email" />
           </div>
 
           <div className="input-div">
-            <h5>Password</h5>
-            <input type="password" name="password" class="input" required />
+            <h5 style={{color:"white",fontSize:"30px", fontWeight:"800"}} >Password</h5>
+            <input type="password" name="password" class="input" required  placeholder="Password"/>
           </div>
           <Row>
-            <Col md="10">{errorLogin !== null ? <Alert variant="danger">{errorLogin}</Alert> : null}</Col>
+            {/* <Col md="10">{errorLogin !== null ? <Alert variant="danger">{errorLogin}</Alert> : null}</Col> */}
           </Row>
-          <button type="button" type="submit" class="btn btn-success">
+          <button type="button" type="submit" style={{padding:"5px 40px", backgroundColor:"rgb(209, 97, 103)",border:"none" ,marginBottom:"20px"}} class="btn btn-success">
             Login
           </button>
         </form>

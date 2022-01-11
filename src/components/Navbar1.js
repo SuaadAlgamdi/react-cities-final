@@ -9,13 +9,13 @@ function NavbarItem() {
     <>
       <Navbar bg="" expand="lg" className="Navbarcss" style={{ borderBbottomStyle: "double", margin: "15px 45px" }}>
         <Link to="/" className="navbar-brand d-flex align-items-center mx-auto" style={{ width: 150 }}>
-          <img
+          {/* <img
             src="https://files.muzli.space/a3579807d6d0b99b8c9c34e63c7e7fb5.jpeg"
             width="80"
             height="40"
             className="d-inline-block align-top"
             alt="React Bootstrap logo"
-          />
+          /> */}
           <Nav
             className="navitem
             nav-link"
@@ -30,7 +30,20 @@ function NavbarItem() {
               animation: "forwards",
             }}
           >
-            {" "}
+            <Nav
+              className="navitem
+            nav-link"
+              to="/cities"
+              className="  
+            navitem navbar-brand d-flex align-items-center mx-auto"
+              width="10"
+              style={{
+                color: "rgb(178, 178, 190)",
+                border: "1px solid rgb(178, 178, 190)",
+                borderRadius: 6,
+                animation: "forwards",
+              }}
+            ></Nav>{" "}
             City
           </Nav>
         </Link>

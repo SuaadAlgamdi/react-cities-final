@@ -1,9 +1,17 @@
 * {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ 
+  /* background-color: burlywood; */
+  opacity: 99;
+
 }
 
 body {
   overflow-x: hidden;
+  /* background-color: burlywood; */
+  /* background-position: center;
+  background-size: cover; */
+
 }
 
 .welcome {
@@ -30,8 +38,9 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-image: url(./assets/desirt.jpg);
-
+  background-image: url(./assets/backGround2.jpg);
+background-position: center;
+background-size: cover;
   margin: 5px;
   margin-top: 0ex;
   gap: 30px;
@@ -146,7 +155,7 @@ body {
 
   /* display: flex; */
 
-text-align: center;
+  text-align: center;
 
   background-color: rgb(158, 111, 113) !important;
   /* border: rgb(185, 87, 87) !important; */
@@ -159,6 +168,7 @@ text-align: center;
 
 
 }
+
 .textComment2 {
 
   /* display: flex; */
@@ -169,30 +179,31 @@ text-align: center;
   background-color: rgb(158, 111, 113) !important;
   border: rgb(185, 87, 87) !important;
   text-transform: uppercase !important;
-/* 
+  /* 
   box-shadow: 0px 5px 0px rgb(161, 85, 85) !important; */
   transition: all .5s !important;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- 
+
 
 
 }
-.textProduct{
-  
- text-align: center;
- color: white;
- font-size: 40px;
+
+.textProduct {
+
+  text-align: center;
+  color: white;
+  font-size: 40px;
 
 
   background-color: rgb(177, 109, 113) !important;
   border: rgb(185, 87, 87) !important;
   text-transform: uppercase !important;
-/* 
+  /* 
   box-shadow: 0px 5px 0px rgb(161, 85, 85) !important; */
   transition: all .5s !important;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: 40px;
- 
+
 
 
 }

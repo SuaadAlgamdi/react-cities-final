@@ -4,7 +4,7 @@ function Foter() {
   return (
     <>
       {" "}
-      <Row className="mt-4" style={{ height: "200px", backgroundColor: " rgb(139, 163, 139)" }}>
+      <Row className="mt-4" style={{ height: "200px",  backgroundColor: "rgb(139, 163, 139)"}}>
         <Col className="mx-5">
           {" "}
         

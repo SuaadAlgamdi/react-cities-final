@@ -96,7 +96,7 @@ function OnePlace() {
             <h3 className="textProduct">Products</h3>
           </Col>
           <Row className="mt-5">
-            <Row>
+            <Row style={{marginLeft:20}}>
               {/* --------------------------------product-----------------هنا عرضت البرودكت داخل البليس-------------------------- */}
               {place.products?.map(product => (
                 <>
@@ -104,7 +104,7 @@ function OnePlace() {
 
                   <Col md="3" mx="727px">
                     <Card border="light" style={{ maxWidth: "1480px" }}>
-                      <Card.Title>{product.name}</Card.Title>
+                      <Card.Title style={{fontSize: "30px"}}>{product.name}</Card.Title>
                       <br />
                       <Card.Img
                         variant="top"
