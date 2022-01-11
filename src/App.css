@@ -31,13 +31,13 @@ body {
   align-items: center;
   text-align: center;
   background-image: url(./assets/desirt.jpg);
- 
+
   margin: 5px;
   margin-top: 0ex;
   gap: 30px;
   background-color: cornsilk;
 
-  
+
 
 
 
@@ -107,22 +107,92 @@ body {
 
 }
 
-.navitem :hover{
+.navitem :hover {
   background-color: beige;
 
 }
 
 .ButtonSerch {
   display: flex;
-  
 
 
-  background-color: rgb(139, 163, 139)!important;
+
+  background-color: rgb(139, 163, 139) !important;
   border: rgb(128, 112, 22) !important;
   text-transform: uppercase !important;
 
-  box-shadow: 0px 5px 0px #555 !important ;
+  box-shadow: 0px 5px 0px #555 !important;
   transition: all .5s !important;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.ButtonSerchDeletComment {
+  display: flex;
+
+
+
+  background-color: rgb(209, 97, 103) !important;
+  border: rgb(185, 87, 87) !important;
+  text-transform: uppercase !important;
+
+  box-shadow: 0px 5px 0px rgb(161, 85, 85) !important;
+  transition: all .5s !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.textComment {
+
+  /* display: flex; */
+
+text-align: center;
+
+  background-color: rgb(158, 111, 113) !important;
+  /* border: rgb(185, 87, 87) !important; */
+  text-transform: uppercase !important;
+
+  /* box-shadow: 0px 5px 0px rgb(161, 85, 85) !important; */
+  transition: all .5s !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 40px;
+
+
+}
+.textComment2 {
+
+  /* display: flex; */
+  text-align: center;
+
+
+
+  background-color: rgb(158, 111, 113) !important;
+  border: rgb(185, 87, 87) !important;
+  text-transform: uppercase !important;
+/* 
+  box-shadow: 0px 5px 0px rgb(161, 85, 85) !important; */
+  transition: all .5s !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ 
+
+
+}
+.textProduct{
+  
+ text-align: center;
+ color: white;
+ font-size: 40px;
+
+
+  background-color: rgb(177, 109, 113) !important;
+  border: rgb(185, 87, 87) !important;
+  text-transform: uppercase !important;
+/* 
+  box-shadow: 0px 5px 0px rgb(161, 85, 85) !important; */
+  transition: all .5s !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 40px;
+ 
+
 
 }

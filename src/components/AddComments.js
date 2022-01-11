@@ -1,3 +1,4 @@
+import { color } from "@mui/system"
 import { useContext } from "react"
 import { Col, Form, Button, Row } from "react-bootstrap"
 import CitiesContext from "../utils/CitiesContext"
@@ -7,7 +8,9 @@ function AddComment(props) {
   const { placeId } = props
   return (
     <div className="ms-4">
-      <h1>Add Comment</h1>
+      <Row>
+        <Col  md="10" className="mx-auto"> 
+      <h1 className="textComment2" style={{ fontFamily: "Arial", color:"white"}}>Add Comment</h1>
       <Form className="mt-5" onSubmit={e => addComment(e, placeId)}>
         <Form.Group as={Row} className="mb-3">
           <Form.Label column md="2">
@@ -20,10 +23,12 @@ function AddComment(props) {
 
         <Form.Group as={Row} className="my-4">
           <Col md={{ span: 10, offset: 2 }}>
-            <Button type="submit">Add</Button>
+            <Button  className="textComment2" type="submit">Add</Button>
           </Col>
         </Form.Group>
       </Form>
+      </Col>
+      </Row>
     </div>
   )
 }

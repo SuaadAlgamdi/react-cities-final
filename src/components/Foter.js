@@ -1,97 +1,84 @@
-import { Col, Nav, Row } from "react-bootstrap";
+import { Col, Nav, Row } from "react-bootstrap"
 
 function Foter() {
-    return ( <> <Row className="mt-5" style={{ height: "200px", backgroundColor: "lightblue" }}>
-    <Col className="mx-5">
+  return (
+    <>
       {" "}
-      <img
-        src="https://files.muzli.space/a3579807d6d0b99b8c9c34e63c7e7fb5.jpeg"
-        width="80"
-        height="80"
-        className="d-inline-block align-top"
-        alt="React Bootstrap logo"
-      />
-    </Col>
-    <Col>
-      {" "}
-      <Nav.Item>
-        <Nav.Link href="/home">Active</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-1">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-2">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="disabled" disabled>
-          Disabled
-        </Nav.Link>
-      </Nav.Item>
-    </Col>
-    <Col>
-      {" "}
-      <Nav.Item>
-        <Nav.Link href="/home">Active</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-1">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-2">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="disabled" disabled>
-          Disabled
-        </Nav.Link>
-      </Nav.Item>
-    </Col>
-    <Col>
-      {" "}
-      <Nav.Item>
-        <Nav.Link href="/home">Active</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-1">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-2">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="disabled" disabled>
-          Disabled
-        </Nav.Link>
-      </Nav.Item>
-    </Col>
-    <Col>
-      {" "}
-      <Nav.Item>
-        <Nav.Link href="/home">Active</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-1">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-2">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="disabled" disabled>
-          Disabled
-        </Nav.Link>
-      </Nav.Item>
-    </Col>
-  </Row></> );
-  
+      <Row className="mt-4" style={{ height: "200px", backgroundColor: " rgb(139, 163, 139)" }}>
+        <Col className="mx-5">
+          {" "}
+        
+        </Col>
+        <Col>
+          {" "}
+          <Nav.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="login"> login</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+        
+          </Nav.Item>
+        </Col>
+        <Col>
+          {" "}
+          <Nav.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="login"> login</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+        
+          </Nav.Item>
+        </Col>
+        <Col>
+          {" "}
+          <Nav.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="login"> login</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+        
+          </Nav.Item>
+        </Col>
+        <Col>
+          {" "}
+          <Nav.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="login"> login</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/">Home</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+        
+          </Nav.Item>
+        </Col>
+      </Row>
+    </>
+  )
 }
 
-export default Foter;
+export default Foter
 
-
-    
- 
 //     <Container class="footer">
 //       <div class="wrapper">
-         
+
 //          <div class="icon twitter">
 //             <div class="tooltip">
 //                Twitter
@@ -104,7 +91,7 @@ export default Foter;
 //             </div>
 //             <span><i class="fab fa-instagram"></i></span>
 //          </div>
-        
+
 //          <div class="icon youtube">
 //             <div class="tooltip">
 //                YouTube
@@ -113,8 +100,6 @@ export default Foter;
 //          </div>
 //       </div>
 //       </Container>
-   
-    
+
 //     </> );
 // }
-

@@ -12,7 +12,7 @@ import OnePlace from "./pages/OnePlace"
 import SingUp from "./pages/SingUp"
 import LogIn from "./pages/LogIn"
 import Profile from "./pages/Profile"
-import RestaurantList from"./pages/RestaurantList"
+import RestaurantList from "./pages/RestaurantList"
 import MuseumsList from "./pages/MuseumsList"
 import EventsList from "./pages/EventsList"
 import HotalsList from "./pages/HotalsList"
@@ -64,7 +64,7 @@ function App() {
       toast.success("signup success")
       navigate("/login")
     } catch (error) {
-      if (error.response)toast.error(error.response.data)
+      if (error.response) toast.error(error.response.data)
       console.log(error.response)
     }
   }
@@ -128,7 +128,7 @@ function App() {
       getPlaces()
       toast.success("Comment added")
     } catch (error) {
-      if (error.response) toast.error(error.response.data)
+      if (error.response) toast.error("you have to logIn")
       else console.log(error)
     }
   }
@@ -147,36 +147,39 @@ function App() {
   // ------------------------------------------likes---------------------------
 
   const likeCity = async cityId => {
-    console.log("hhhh")
     try {
       const response = await axios.get(`http://localhost:5000/api/cities/${cityId}/likes`, {
         headers: {
           Authorization: localStorage.tokenCities,
         },
       })
-    console.log("kkk")
 
       getCities()
       getProfile()
       toast.success(response.data)
     } catch (error) {
-      if (error.response) toast.error(error.response.data)
+      if (error.response) toast.error("you have to logIn")
       else console.log(error)
     }
   }
+  // --------------------------------------------------------search---------
   const citySearch = e => {
     e.preventDefault()
     const form = e.target
     const searchText = form.elements.citySearch.value
     const cityFound = cities.find(city => city.name === searchText)
+    const placeFound = places.find(place => place.name === searchText)
+
     if (cityFound) return navigate(`/city/${cityFound._id}`)
+    else if (placeFound) return navigate(`/place/${placeFound._id}`)
+    // console.log(placeFound)
     toast.error("not found")
-  }
+  } 
 
-
+  
 
   // ------------------------------------add reting--------------------
-  
+
   const addRating = async (placeId, rating) => {
     try {
       const ratingBody = {
@@ -218,22 +221,24 @@ function App() {
     deleteComment,
     likeCity,
     citySearch,
-    addRating
+    
+    addRating,
   }
 
   return (
     <CitiesContext.Provider value={store}>
       <ToastContainer />
       <Navbar />
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/city/:cityId" element={<OneCity />} />
-        <Route path="/city/:cityId/Restaurant"element={<RestaurantList/>} />
-        <Route path="/city/:cityId/Event"element={<EventsList/>} />
-        <Route path ="/city/:cityId/Museum" element={<MuseumsList/>}/>
-        <Route path ="/city/:cityId/Hotel" element={<HotalsList/>}/>
-        <Route path ="/city/:cityId/TouristPlace" element={<TouristPlaceList/>}/>
+        <Route path="/place/:placeId" element={<OnePlace />} />
+        <Route path="/city/:cityId/Restaurant" element={<RestaurantList />} />
+        <Route path="/city/:cityId/Event" element={<EventsList />} />
+        <Route path="/city/:cityId/Museum" element={<MuseumsList />} />
+        <Route path="/city/:cityId/Hotel" element={<HotalsList />} />
+        <Route path="/city/:cityId/TouristPlace" element={<TouristPlaceList />} />
         <Route path="/Restaurant/:restaurantId/" element={<OnePlace />} />
         <Route path="/Event/:eventId/" element={<OnePlace />} />
         <Route path="/Hotel/:hotelId/" element={<OnePlace />} />

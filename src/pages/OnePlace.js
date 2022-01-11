@@ -1,4 +1,5 @@
 import { CommentsDisabled } from "@mui/icons-material"
+import { color } from "@mui/system"
 import { useContext } from "react"
 import { Button, Card, Carousel, Col, Image, Row } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
@@ -7,9 +8,11 @@ import RatingStars from "../components/RatingStars"
 import CitiesContext from "../utils/CitiesContext"
 
 function OnePlace() {
-  const { restaurantId, museumId, eventId, hotelId, mallId, touristPlaceId } = useParams()
-  const { restaurants, museums, malls, events, hotels, touristPlaces, profile, deleteComment } =
+  const { restaurantId, museumId, eventId, hotelId, mallId, touristPlaceId, placeId } = useParams()
+  const { restaurants, museums, malls, events, hotels, touristPlaces, profile, deleteComment, places } =
     useContext(CitiesContext)
+
+  if (places.length === 0) return <h1>Loading...</h1>
 
   // if (
   //   restaurants?.length === 0 &&
@@ -27,6 +30,8 @@ function OnePlace() {
   else if (mallId) place = malls.find(mall => mall._id === mallId)
   else if (touristPlaceId) place = touristPlaces.find(touristPlace => touristPlace._id === touristPlaceId)
   else if (hotelId) place = hotels.find(hotel => hotel._id === hotelId)
+  else if (placeId) place = places.find(place => place._id === placeId)
+
   console.log(place)
 
   if (!place) return <h1>Loading...</h1>
@@ -86,38 +91,48 @@ function OnePlace() {
           </Col>
         </Row>
 
-        <Row className="mt-5">
-          <h3>Products</h3>
-          {/* -------------------------------------------------هنا عرضت البرودكت داخل البليس-------------------------- */}
-          {place.products?.map(product => (
-            <>
-              {/* <p>{product.photo}</p> */}
+        <Row>
+          <Col md="4" className="mx-auto">
+            <h3 className="textProduct">Products</h3>
+          </Col>
+          <Row className="mt-5">
+            <Row>
+              {/* --------------------------------product-----------------هنا عرضت البرودكت داخل البليس-------------------------- */}
+              {place.products?.map(product => (
+                <>
+                  {/* <p>{product.photo}</p> */}
 
-              <Col md="3" mx="77px">
-                <Card border="light" style={{ maxWidth: "200px" }}>
-                  <Card.Title>{product.name}</Card.Title>
-                  <br />
-                  <Card.Img
-                    variant="top"
-                    src={product.photo}
-                    height="220px"
-                    style={{ borderRadius: "33px", objectFit: "cover" }}
-                  />
-                  <Card.Body>
-                    <Card.Text> {product.description}</Card.Text>
-                    <Card.Text> {product.price} SAR</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </>
-          ))}
+                  <Col md="3" mx="727px">
+                    <Card border="light" style={{ maxWidth: "1480px" }}>
+                      <Card.Title>{product.name}</Card.Title>
+                      <br />
+                      <Card.Img
+                        variant="top"
+                        src={product.photo}
+                        height="220px"
+                        style={{ borderRadius: "33px", objectFit: "cover" }}
+                      />
+                      <Card.Body>
+                        <Card.Text> {product.description}</Card.Text>
+                        <Card.Text> {product.price} SAR</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                </>
+              ))}
+            </Row>
+          </Row>
         </Row>
 
         {/* ----------------------------------------comments----------------------- */}
         <Row>
-          <h3>Comments</h3>
+          <Col  md="10" className="mx-auto">
+            <h1 className="textComment2" style={{ fontFamily: "Arial", color:"white" }}>
+              Comments
+            </h1>
+          </Col>
           {place.comments.map(comment => (
-            <Card style={{ margin: 20, maxWidth: 1100 }}>
+            <Card style={{ marginLeft: 250, maxWidth: 1100,marginTop:30,marginBottom:20 }}>
               <Row>
                 <Row style={{ display: "flex", alignItems: "center" }}>
                   <Col md="1">
@@ -128,10 +143,15 @@ function OnePlace() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col md="10">{comment.comment}</Col>
+                  <Col  md ="10" style={{marginTop:30,fontSize: "25px"}}>{comment.comment}</Col>
                   {profile?._id == comment.owner._id ? (
                     <Col>
-                      <Button variant="danger" onClick={() => deleteComment(place._id, comment._id)}>
+                      <Button
+                        className="ButtonSerchDeletComment"
+                        style={{ marginBottom: 50 }}
+                        variant="danger"
+                        onClick={() => deleteComment(place._id, comment._id)}
+                      >
                         delete
                       </Button>
                     </Col>
