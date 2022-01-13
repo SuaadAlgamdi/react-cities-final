@@ -1,24 +1,70 @@
 import { Restaurant } from "@mui/icons-material"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Button, Card, Col, Image, Row } from "react-bootstrap"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import CitiesContext from "../utils/CitiesContext"
-import { MdFavorite, MdOutlineFavoriteBorder } from "react-icons/md"
+import { MdFavorite, MdOutlineFavoriteBorder, MdOutlineNightlight } from "react-icons/md"
 import Carsullist from "../components/Carsullist"
+import {
+  BsSun,
+  BsCloudSun,
+  BsCloudSunFill,
+  BsClouds,
+  BsCloudHail,
+  BsCloudLightningRain,
+  BsThermometerSnow,
+  BsFillCloudHaze2Fill,
+  BsCloudMinus,
+  BsCloudDrizzle,
+} from "react-icons/bs"
 
+import { AiTwotoneCloud } from "react-icons/ai"
+import { RiMistLine } from "react-icons/ri"
+
+import axios from "axios"
+import { WiNightCloudy, WiNightAltSnowThunderstorm } from "react-icons/wi"
 function OneCity() {
   const { cityId } = useParams()
   const { cities, likeCity, profile } = useContext(CitiesContext)
+  const [city, setCity] = useState(null)
+  const [cityWither, setCityWither] = useState(null)
+
+  const GetWeather = async () => {
+    let cityLat = city.lat
+    let cityLong = city.long
+
+    console.log(cityLat)
+    console.log(cityLong)
+
+    const response = await axios.get(
+      "http://api.openweathermap.org/data/2.5/weather?lat=" +
+        cityLat +
+        "&lon=" +
+        cityLong +
+        "&appid=087f039cbb00ac0f449ea634557c6881&units=metric&lang=ar"
+     )            
+
+    //  2e893f791d8153ce8cfe9e231cb63066
+    setCityWither(response.data)
+  }
+  useEffect(() => {
+    setCity(cities.find(city => city._id === cityId))
+  }, [cities])
+
+  useEffect(() => {
+    if (city) GetWeather()
+  }, [city])
 
   if (cities.length === 0) return <h1>Loading...</h1>
 
-  const city = cities.find(city => city._id === cityId)
   if (!city) return <h1>Loading...</h1>
 
-  console.log(profile)
+  console.log(city)
   let liked = false
   if (profile) liked = city.likes.includes(profile._id)
+
+  console.log(cityWither?.main.temp.toFixed(1))
 
   return (
     <>
@@ -43,6 +89,62 @@ function OneCity() {
           <Button variant="dark" className="ms-3" onClick={() => likeCity(city._id)}>
             {liked ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
           </Button>
+        </Col>
+        {/* ------------------------------------wether  */}
+        <Col>
+          <Card className="text-center" style={{ backgroundColor: "cornsilk" ,marginRight:"32px" }}>
+            {/* <Card.Header style={{ color: "black" }}>{city.name}</Card.Header> */}
+            <Card.Body style={{ backgroundColor: "cornsilk", width: "350px", height: "150px" ,marginRight:"22px"}}>
+              <Row>
+                <Col>
+                  <Card.Title style={{ color: "black" }}>{city.name}</Card.Title>
+                  <Card.Text style={{ color: "black" }}>{cityWither?.main.temp.toFixed(1)} ° </Card.Text>
+                  <Card.Text style={{ color: "black" }}>min {cityWither?.main.temp_min.toFixed(1)}° </Card.Text>
+                  <Card.Text style={{ color: "black" }}> max {cityWither?.main.temp_max.toFixed(1)}° </Card.Text>
+                </Col>
+                <Col>
+                  {cityWither?.weather[0].icon == "01d" ? (
+                    <BsSun style={{ color: " rgb(134, 126, 9)", fontSize: 50,fontWeight:800  }} />
+                  ) : cityWither?.weather[0].icon == "02d" ? (
+                    <BsCloudSun style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "01n" ? (
+                    <MdOutlineNightlight style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "03d" ? (
+                    <BsCloudSunFill style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "04d" ? (
+                    <BsClouds style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "09d" ? (
+                    <BsCloudHail style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "10d" ? (
+                    <BsCloudLightningRain style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "11d" ? (
+                    <BsCloudLightningRain style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "13d" ? (
+                    <BsThermometerSnow style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "05d" ? (
+                    <BsFillCloudHaze2Fill style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "02n" ? (
+                    <WiNightCloudy style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "03n" ? (
+                    <AiTwotoneCloud style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "04n" ? (
+                    <BsCloudMinus style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "09n" ? (
+                    <BsCloudDrizzle style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "10n" ? (
+                    <BsCloudLightningRain />
+                  ) : cityWither?.weather[0].icon == "11n" ? (
+                    <WiNightAltSnowThunderstorm style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "13n" ? (
+                    <BsThermometerSnow style={{ color: "black", fontSize: 50 }} />
+                  ) : cityWither?.weather[0].icon == "50n" ? (
+                    <RiMistLine />
+                  ) : null}
+                  <Card.Text style={{ color: "black" }}>{cityWither?.weather[0].description}</Card.Text>
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
       <Row className="mt-5"></Row>

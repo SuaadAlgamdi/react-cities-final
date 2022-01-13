@@ -56,6 +56,7 @@ function OnePlace() {
           <Col md={{ offset: 1 }}>
             <h1>{place.name}</h1> <h3>{place.description}</h3>
             <h5> {place.location}</h5>
+            <img variant="top" src={place.video} width="100%" style={{ borderRadius: "10px", margin: "20px" }} />
           </Col>
         </Row>
         <Row>
@@ -96,7 +97,7 @@ function OnePlace() {
             <h3 className="textProduct">Products</h3>
           </Col>
           <Row className="mt-5">
-            <Row style={{marginLeft:20}}>
+            <Row style={{ marginLeft: 20 }}>
               {/* --------------------------------product-----------------هنا عرضت البرودكت داخل البليس-------------------------- */}
               {place.products?.map(product => (
                 <>
@@ -104,7 +105,7 @@ function OnePlace() {
 
                   <Col md="3" mx="727px">
                     <Card border="light" style={{ maxWidth: "1480px" }}>
-                      <Card.Title style={{fontSize: "30px"}}>{product.name}</Card.Title>
+                      <Card.Title style={{ fontSize: "30px" }}>{product.name}</Card.Title>
                       <br />
                       <Card.Img
                         variant="top"
@@ -114,7 +115,8 @@ function OnePlace() {
                       />
                       <Card.Body>
                         <Card.Text> {product.description}</Card.Text>
-                        <Card.Text> {product.price} SAR</Card.Text>
+
+                        {museumId || mallId  ?  null : <Card.Text> {product.price} SAR</Card.Text>}
                       </Card.Body>
                     </Card>
                   </Col>
@@ -126,13 +128,13 @@ function OnePlace() {
 
         {/* ----------------------------------------comments----------------------- */}
         <Row>
-          <Col  md="10" className="mx-auto">
-            <h1 className="textComment2" style={{ fontFamily: "Arial", color:"white" }}>
+          <Col md="10" className="mx-auto">
+            <h1 className="textComment2" style={{ fontFamily: "Arial", color: "white" }}>
               Comments
             </h1>
           </Col>
           {place.comments.map(comment => (
-            <Card style={{ marginLeft: 250, maxWidth: 1100,marginTop:30,marginBottom:20 }}>
+            <Card style={{ marginLeft: 250, maxWidth: 1100, marginTop: 30, marginBottom: 20 }}>
               <Row>
                 <Row style={{ display: "flex", alignItems: "center" }}>
                   <Col md="1">
@@ -143,7 +145,9 @@ function OnePlace() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col  md ="10" style={{marginTop:30,fontSize: "25px"}}>{comment.comment}</Col>
+                  <Col md="10" style={{ marginTop: 30, fontSize: "25px" }}>
+                    {comment.comment}
+                  </Col>
                   {profile?._id == comment.owner._id ? (
                     <Col>
                       <Button

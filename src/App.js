@@ -18,6 +18,8 @@ import EventsList from "./pages/EventsList"
 import HotalsList from "./pages/HotalsList"
 import TouristPlaceList from "./pages/TouristPlacesList"
 import Carsullist from "./components/Carsullist"
+import Footer from "./components/Footer"
+import Foter from "./components/Foter"
 
 function App() {
   const [cities, setCities] = useState([])
@@ -174,9 +176,7 @@ function App() {
     else if (placeFound) return navigate(`/place/${placeFound._id}`)
     // console.log(placeFound)
     toast.error("not found")
-  } 
-
-  
+  }
 
   // ------------------------------------add reting--------------------
 
@@ -221,7 +221,7 @@ function App() {
     deleteComment,
     likeCity,
     citySearch,
-    
+
     addRating,
   }
 
@@ -249,6 +249,11 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <div>
+        {" "}
+      
+        <Foter />
+      </div>
     </CitiesContext.Provider>
   )
 }

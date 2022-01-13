@@ -21,7 +21,7 @@ function Home() {
         {/* -------------------------foter--------- */}
         <Row></Row>
       </Container>
-      <Foter />
+      
     </>
   )
 }
