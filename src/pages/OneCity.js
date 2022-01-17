@@ -24,6 +24,10 @@ import { RiMistLine } from "react-icons/ri"
 
 import axios from "axios"
 import { WiNightCloudy, WiNightAltSnowThunderstorm } from "react-icons/wi"
+import { margin } from "@mui/system"
+import styles from"./oneCity.module.css"
+
+
 function OneCity() {
   const { cityId } = useParams()
   const { cities, likeCity, profile } = useContext(CitiesContext)
@@ -43,7 +47,7 @@ function OneCity() {
         "&lon=" +
         cityLong +
         "&appid=087f039cbb00ac0f449ea634557c6881&units=metric&lang=ar"
-     )            
+    )
 
     //  2e893f791d8153ce8cfe9e231cb63066
     setCityWither(response.data)
@@ -92,9 +96,9 @@ function OneCity() {
         </Col>
         {/* ------------------------------------wether  */}
         <Col>
-          <Card className="text-center" style={{ backgroundColor: "cornsilk" ,marginRight:"32px" }}>
+          <Card className="text-center" style={{ backgroundColor: "cornsilk", marginRight: "32px" }}>
             {/* <Card.Header style={{ color: "black" }}>{city.name}</Card.Header> */}
-            <Card.Body style={{ backgroundColor: "cornsilk", width: "350px", height: "150px" ,marginRight:"22px"}}>
+            <Card.Body style={{ backgroundColor: "cornsilk", width: "350px", height: "150px", marginRight: "22px" }}>
               <Row>
                 <Col>
                   <Card.Title style={{ color: "black" }}>{city.name}</Card.Title>
@@ -104,7 +108,7 @@ function OneCity() {
                 </Col>
                 <Col>
                   {cityWither?.weather[0].icon == "01d" ? (
-                    <BsSun style={{ color: " rgb(134, 126, 9)", fontSize: 50,fontWeight:800  }} />
+                    <BsSun style={{ color: " rgb(134, 126, 9)", fontSize: 50, fontWeight: 800 }} />
                   ) : cityWither?.weather[0].icon == "02d" ? (
                     <BsCloudSun style={{ color: "black", fontSize: 50 }} />
                   ) : cityWither?.weather[0].icon == "01n" ? (
@@ -150,73 +154,87 @@ function OneCity() {
       <Row className="mt-5"></Row>
       <Row className="mx-2" md="2">
         {city.restaurants.length > 0 ? (
-          <Col className="mt-5">
-            <h3 className="titleOfPlace" style={{ alignItems: "center" }}>
+          <Col className={styles.places} >
+            <h2 className="titleOfPlace" >
               Restaurants
-            </h3>
+            </h2>
 
             <Link to={`/city/${cityId}/Restaurant`}>
               <Card.Img
                 variant="top"
                 src={`https://media.istockphoto.com/photos/empty-restaurant-interior-picture-id1290237592?b=1&k=20&m=1290237592&s=170667a&w=0&h=fgXWrrQ7qWpbiO8O_dpEVlS4JsTZYH8e3FoZ4UeoQH8=`}
                 height="220px"
-                style={{ borderRadius: "10px", objectFit: "cover" }}
+                style={{ borderRadius: "10px", objectFit: "scale-down" }}
               />
             </Link>
           </Col>
         ) : null}
         {city.museums.length > 0 ? (
-          <Col className="mt-5">
+          <Col className={styles.places} >
             {" "}
-            <h3>Museums</h3>
+            <h2>Museums</h2>
             <Link to={`/city/${cityId}/Museum`}>
               <Card.Img
                 variant="top"
                 src={city.museums[0]?.logo}
                 height="220px"
-                style={{ borderRadius: "10px", objectFit: "cover" }}
+                objectFit="cover"
+                style={{ borderRadius: "10px", width: "100%", objectFit: "scale-down" }}
               />
             </Link>
           </Col>
         ) : null}
         {city.events.length > 0 ? (
-          <Col className="mt-5">
+          <Col className={styles.places}>
             {" "}
-            <h3>Events</h3>
+            <h2>Events</h2>
             <Link to={`/city/${cityId}/Event`}>
               <Card.Img
                 variant="top"
                 src={city.events[0]?.logo}
                 height="220px"
-                style={{ borderRadius: "10px", objectFit: "cover" }}
+                style={{ borderRadius: "10px", objectFit: "contain" }}
               />
             </Link>
           </Col>
         ) : null}
 
         {city.hotels.length > 0 ? (
-          <Col className="mt-5">
+          <Col className={styles.places}>
             {" "}
-            <h3>Hotels</h3>
+            <h2>Hotels</h2>
             <Link to={`/city/${cityId}/Hotel`}>
               <Card.Img
                 variant="top"
                 src={city.hotels[0]?.logo}
                 height="220px"
-                style={{ borderRadius: "10px", objectFit: "cover" }}
+                style={{ borderRadius: "10px", objectFit: "scale-down" }}
               />
             </Link>
           </Col>
         ) : null}
         {city.touristPlaces.length > 0 ? (
-          <Col className="mt-5">
-            <h3> TouristPlaces</h3>
+          <Col className={styles.places}>
+            <h2 style={{  }}> TouristPlaces</h2>
             <Link to={`/city/${cityId}/TouristPlace`}>
               <Card.Img
                 variant="top"
                 src={city.touristPlaces[0]?.logo}
                 height="220px"
-                style={{ borderRadius: "10px", objectFit: "cover" }}
+                style={{ borderRadius: "10px", objectFit: "scale-down" }}
+              />
+            </Link>
+          </Col>
+        ) : null}
+        {city.malls.length > 0 ? (
+          <Col className={styles.places}>
+            <h2>Malls</h2>
+            <Link to={`/city/${cityId}/Mall`}>
+              <Card.Img
+                variant="top"
+                src={city.malls[0]?.logo}
+                height="220px"
+                style={{ borderRadius: "1px", objectFit: "scale-down" }}
               />
             </Link>
           </Col>
@@ -233,7 +251,7 @@ function OneCity() {
             {city.comments.map(comment => (
               <Card style={{ margin: 20, maxWidth: 1100 }}>
                 <Row>
-                  <Row style={{ display: "flex", alignItems: "center" }}>
+                  <Row style={{ display: "flex", alignItems: "scale-down" }}>
                     <Col md="1">
                       <Image src={comment.owner.avatar} width="80px" roundedCircle />
                     </Col>

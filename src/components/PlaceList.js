@@ -16,13 +16,13 @@ function PlaceList(props) {
       <Row md="6">
         {placesType.map(place => (
           <Col key={place._id}>
-            <Card border="light" style={{ maxWidth: "200px" }}>
+            <Card border="light" style={{ maxWidth: "200px"  ,objectFit:"contain "}}>
               <Link to={`/${type}/${place._id}`}>
                 <Card.Img
                   variant="top"
                   src={place.logo}
                   height="220px"
-                  style={{ borderRadius: "10px", objectFit: "cover" }}
+                  style={{ borderRadius: "10px", }}
                 />
               </Link>
               <Card.Body>

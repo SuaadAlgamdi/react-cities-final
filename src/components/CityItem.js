@@ -2,10 +2,13 @@ import { useContext } from "react"
 import { Card, Col } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import CitiesContext from "../utils/CitiesContext"
+import styles from "./cityitem.module.css"
+
 
 function CityItem(props) {
   const { city } = props
   const { cities } = useContext(CitiesContext)
+
 
   console.log(cities)
 
@@ -14,12 +17,12 @@ function CityItem(props) {
 
   console.log(cityFound)
   return (
-    <Col>
-      <Card border="light" style={{ maxWidth: "200px", height:400 }}>
+    <Col >
+      <Card  className={styles.cardcity}  style={{ maxWidth: "200px", height:400}}>
         <Link to={`/city/${cityFound._id}`}>
           <Card.Img variant="top" src={cityFound.photo} height="220px" style={{ borderRadius: "10px" }} />
         </Link>
-        <Card.Body>
+        <Card.Body style={{backgroundColor: "none"}}>
           <Link to={`/city/${cityFound._id}`} className="text-black" style={{ textDecoration: "none" }}>
             <Card.Title>{cityFound.name}</Card.Title>
           </Link>

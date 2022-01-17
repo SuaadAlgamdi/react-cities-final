@@ -10,7 +10,7 @@ function AddComment(props) {
     <div className="ms-4">
       <Row>
         <Col  md="10" className="mx-auto"> 
-      <h1 className="textComment2" style={{ fontFamily: "Arial", color:"white"}}>Add Comment</h1>
+      <h1 className="textComment2" >Add Comment</h1>
       <Form className="mt-5" onSubmit={e => addComment(e, placeId)}>
         <Form.Group as={Row} className="mb-3">
           <Form.Label column md="2">

@@ -25,7 +25,7 @@ function EventsList() {
                 variant="top"
                 src={event.logo}
                 height="220px"
-                style={{ borderRadius: "10px", objectFit: "cover" }}
+                style={{ borderRadius: "10px", objectFit: "contain " }}
               />
             </Link>
             <Card.Body>

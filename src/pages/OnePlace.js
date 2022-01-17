@@ -68,7 +68,7 @@ function OnePlace() {
                     className="d-block w-100"
                     src={photo}
                     alt="First slide"
-                    style={{ width: "100px", height: "500px", objectFit: "cover" }}
+                    style={{ width: "100%", height: "500px", objectFit: "cover" }}
                   />
                 </Carousel.Item>
               ))}
@@ -111,12 +111,12 @@ function OnePlace() {
                         variant="top"
                         src={product.photo}
                         height="220px"
-                        style={{ borderRadius: "33px", objectFit: "cover" }}
+                        style={{ borderRadius: "33px", objectFit: "contain " }}
                       />
                       <Card.Body>
                         <Card.Text> {product.description}</Card.Text>
 
-                        {museumId || mallId  ?  null : <Card.Text> {product.price} SAR</Card.Text>}
+                        {museumId || mallId || eventId ||touristPlaceId ?  null : <Card.Text> {product.price} SAR</Card.Text>}
                       </Card.Body>
                     </Card>
                   </Col>
@@ -129,7 +129,7 @@ function OnePlace() {
         {/* ----------------------------------------comments----------------------- */}
         <Row>
           <Col md="10" className="mx-auto">
-            <h1 className="textComment2" style={{ fontFamily: "Arial", color: "white" }}>
+            <h1 className="textComment2" >
               Comments
             </h1>
           </Col>

@@ -1,44 +1,44 @@
 import { useContext } from "react"
-import { Card, Col } from "react-bootstrap"
+import { Card, Col, Row } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import CitiesContext from "../utils/CitiesContext"
 import Carsullist from "../components/Carsullist"
 
-function MuseumsList() {
+function MallList() {
   const { cityId } = useParams()
   const { cities } = useContext(CitiesContext)
 
-  if (cities.length === 0) return <h1>Loading...</h1>
 
   const city = cities.find(city => city._id === cityId)
-  console.log(city)
   if (!city) return <h1>Loading...</h1>
-  if (city.museums.length === 0) return <h1>No Museums in this city</h1>
+  if (city.malls.length === 0) return <h1>No malls in this city</h1>
 
   return (
     <>
-      <Carsullist places={city.museums} />
-      {city.museums.map(museum => (
-        <Col md="2">
+      <Carsullist places={city.malls} />
+
+      <Row md="10" style={{ margin: "auto" }}>
+        {" "}
+        {city.malls.map(mall => (
           <Card border="light" style={{ maxWidth: "200px" }}>
-            <Link to={`/Museum/${museum._id}`}>
+            <Link to={`/Mall/${mall._id}`}>
               <Card.Img
                 variant="top"
-                src={museum.logo}
+                src={mall.logo}
                 height="220px"
                 style={{ borderRadius: "10px", objectFit: "cover" }}
               />
             </Link>
             <Card.Body>
-              <Link to={`/Museum/${museum._id}`} className="text-black" style={{ textDecoration: "none" }}>
-                <Card.Title>{museum.name}</Card.Title>
+              <Link to={`/Mall/${mall._id}`} className="text-black" style={{ textDecoration: "none" }}>
+                <Card.Title>{mall.name}</Card.Title>
               </Link>
             </Card.Body>
           </Card>
-        </Col>
-      ))}
+        ))}
+      </Row>
     </>
   )
 }
 
-export default MuseumsList
+export default MallList

@@ -16,6 +16,7 @@ import RestaurantList from "./pages/RestaurantList"
 import MuseumsList from "./pages/MuseumsList"
 import EventsList from "./pages/EventsList"
 import HotalsList from "./pages/HotalsList"
+import MallList from "./pages/MallList"
 import TouristPlaceList from "./pages/TouristPlacesList"
 import Carsullist from "./components/Carsullist"
 import Footer from "./components/Footer"
@@ -238,6 +239,7 @@ function App() {
         <Route path="/city/:cityId/Event" element={<EventsList />} />
         <Route path="/city/:cityId/Museum" element={<MuseumsList />} />
         <Route path="/city/:cityId/Hotel" element={<HotalsList />} />
+        <Route path ="city/:cityId/Mall"element={<MallList/>}/>
         <Route path="/city/:cityId/TouristPlace" element={<TouristPlaceList />} />
         <Route path="/Restaurant/:restaurantId/" element={<OnePlace />} />
         <Route path="/Event/:eventId/" element={<OnePlace />} />

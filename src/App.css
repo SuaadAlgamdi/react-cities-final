@@ -1,6 +1,6 @@
 * {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
- 
+
   /* background-color: burlywood; */
   opacity: 99;
 
@@ -11,20 +11,6 @@ body {
   /* background-color: burlywood; */
   /* background-position: center;
   background-size: cover; */
-
-}
-
-.welcome {
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  color: darkred;
-  text-shadow: 2px 2px 5px black;
-  font-size: 100px;
-  margin-top: 8px;
-  margin-top: 0px;
-  position: relative;
-  background-color: burlywood;
-
 
 }
 
@@ -39,13 +25,13 @@ body {
   align-items: center;
   text-align: center;
   background-image: url(./assets/backGround2.jpg);
-background-position: center;
-background-size: cover;
+  background-position: center;
+  background-size: cover;
   margin: 5px;
   margin-top: 0ex;
   gap: 30px;
   background-color: cornsilk;
- 
+
 
 
 
@@ -166,7 +152,7 @@ background-size: cover;
   transition: all .5s !important;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: 40px;
-
+  color: white;
 
 }
 
@@ -174,9 +160,11 @@ background-size: cover;
 
   /* display: flex; */
   text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
+  color: white;
 
-
+  
   background-color: rgb(158, 111, 113) !important;
   border: rgb(185, 87, 87) !important;
   text-transform: uppercase !important;
