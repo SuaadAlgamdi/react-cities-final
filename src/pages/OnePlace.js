@@ -126,7 +126,7 @@ function OnePlace() {
           </Row>
         </Row>
 
-        {/* ----------------------------------------comments----------------------- */}
+        {/* ----------------------------------------comments--------------------- */}
         <Row>
           <Col md="10" className="mx-auto">
             <h1 className="textComment2" >
@@ -138,10 +138,10 @@ function OnePlace() {
               <Row>
                 <Row style={{ display: "flex", alignItems: "center" }}>
                   <Col md="1">
-                    <Image src={comment.owner.avatar} width="80px" roundedCircle />
+                    <Image src={comment.owner?.avatar} width="80px" roundedCircle />
                   </Col>
                   <Col>
-                    {comment.owner.firstName} {comment.owner.lastName}
+                    {comment.owner?.firstName} {comment.owner?.lastName}
                   </Col>
                 </Row>
                 <Row>
