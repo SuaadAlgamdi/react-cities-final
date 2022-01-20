@@ -25,8 +25,7 @@ import { RiMistLine } from "react-icons/ri"
 import axios from "axios"
 import { WiNightCloudy, WiNightAltSnowThunderstorm } from "react-icons/wi"
 import { margin } from "@mui/system"
-import styles from"./oneCity.module.css"
-
+import styles from "./oneCity.module.css"
 
 function OneCity() {
   const { cityId } = useParams()
@@ -89,7 +88,7 @@ function OneCity() {
         <Col md={{ offset: 1 }}>
           <h1>{city.name}</h1>
           <h3>Overview</h3>
-          <p>{city.description}</p>{" "}
+          <p>{city.description}</p>
           <Button variant="dark" className="ms-3" onClick={() => likeCity(city._id)}>
             {liked ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
           </Button>
@@ -154,51 +153,48 @@ function OneCity() {
       <Row className="mt-5"></Row>
       <Row className="mx-2" md="2">
         {city.restaurants.length > 0 ? (
-          <Col className={styles.places} >
-            <h2 className="titleOfPlace" >
-              Restaurants
-            </h2>
+          <Col className={styles.places}>
+            <h2 className="titleOfPlace">Restaurants</h2>
 
             <Link to={`/city/${cityId}/Restaurant`}>
-              <div   className="cardStale">
-              <Card.Img
-                variant="top"
-                src={`https://media.istockphoto.com/photos/empty-restaurant-interior-picture-id1290237592?b=1&k=20&m=1290237592&s=170667a&w=0&h=fgXWrrQ7qWpbiO8O_dpEVlS4JsTZYH8e3FoZ4UeoQH8=`}
-                height="220px"
-                style={{ borderRadius: "10px", objectFit: "scale-down" }}
-              />
+              <div className="cardStale">
+                <Card.Img
+                  variant="top"
+                  src={`https://media.istockphoto.com/photos/empty-restaurant-interior-picture-id1290237592?b=1&k=20&m=1290237592&s=170667a&w=0&h=fgXWrrQ7qWpbiO8O_dpEVlS4JsTZYH8e3FoZ4UeoQH8=`}
+                  height="220px"
+                  style={{ borderRadius: "10px", objectFit: "cover" }}
+                />
               </div>
             </Link>
           </Col>
         ) : null}
         {city.museums.length > 0 ? (
-          <Col className={styles.places} >
-            {" "}
+          <Col className={styles.places}>
             <h2>Museums</h2>
             <Link to={`/city/${cityId}/Museum`}>
-            <div  className="cardStale"> <Card.Img
-                variant="top"
-                src={city.museums[0]?.logo}
-                height="220px"
-                objectFit="cover"
-                style={{ borderRadius: "10px", width: "100%", objectFit: "scale-down" }}
-              />
-               </div> 
+              <div className="cardStale">
+                <Card.Img
+                  variant="top"
+                  src={city.museums[0]?.logo}
+                  height="220px"
+                  objectFit="cover"
+                  style={{ borderRadius: "10px", width: "100%", objectFit: "cover" }}
+                />
+              </div>
             </Link>
           </Col>
         ) : null}
         {city.events.length > 0 ? (
           <Col className={styles.places}>
-            {" "}
             <h2>Events</h2>
-           <Link to={`/city/${cityId}/Event`}>
-             <div className="cardStale">
-              <Card.Img
-                variant="top"
-                src={city.events[0]?.logo}
-                height="220px"
-                style={{ borderRadius: "10px", objectFit: "contain" }}
-              />
+            <Link to={`/city/${cityId}/Event`}>
+              <div className="cardStale">
+                <Card.Img
+                  variant="top"
+                  src={city.events[0]?.logo}
+                  height="220px"
+                  style={{ borderRadius: "10px", objectFit: "contain" }}
+                />
               </div>
             </Link>
           </Col>
@@ -206,31 +202,30 @@ function OneCity() {
 
         {city.hotels.length > 0 ? (
           <Col className={styles.places}>
-            {" "}
             <h2>Hotels</h2>
             <Link to={`/city/${cityId}/Hotel`}>
               <div className="cardStale">
-              <Card.Img
-                variant="top"
-                src={city.hotels[0]?.logo}
-                height="220px"
-                style={{ borderRadius: "10px", objectFit: "scale-down" }}
-              />
+                <Card.Img
+                  variant="top"
+                  src={city.hotels[0]?.logo}
+                  height="220px"
+                  style={{ borderRadius: "10px", objectFit: "cover" }}
+                />
               </div>
             </Link>
           </Col>
         ) : null}
         {city.touristPlaces.length > 0 ? (
           <Col className={styles.places}>
-            <h2 style={{  }}> TouristPlaces</h2>
+            <h2 style={{}}> TouristPlaces</h2>
             <Link to={`/city/${cityId}/TouristPlace`}>
               <div className="cardStale">
-              <Card.Img
-                variant="top"
-                src={city.touristPlaces[0]?.logo}
-                height="220px"
-                style={{ borderRadius: "10px", objectFit: "scale-down" }}
-              />
+                <Card.Img
+                  variant="top"
+                  src={city.touristPlaces[0]?.logo}
+                  height="220px"
+                  style={{ borderRadius: "10px", objectFit: "cover" }}
+                />
               </div>
             </Link>
           </Col>
@@ -240,12 +235,12 @@ function OneCity() {
             <h2>Malls</h2>
             <Link to={`/city/${cityId}/Mall`}>
               <div className="cardStale">
-              <Card.Img
-                variant="top"
-                src={city.malls[0]?.logo}
-                height="220px"
-                style={{ borderRadius: "1px", objectFit: "scale-down" }}
-              />
+                <Card.Img
+                  variant="top"
+                  src={city.malls[0]?.logo}
+                  height="220px"
+                  style={{ borderRadius: "1px", objectFit: "cover" }}
+                />
               </div>
             </Link>
           </Col>
@@ -262,7 +257,7 @@ function OneCity() {
             {city.comments.map(comment => (
               <Card style={{ margin: 20, maxWidth: 1100 }}>
                 <Row>
-                  <Row style={{ display: "flex", alignItems: "scale-down" }}>
+                  <Row style={{ display: "flex", alignItems: "cover" }}>
                     <Col md="1">
                       <Image src={comment.owner.avatar} width="80px" roundedCircle />
                     </Col>
