@@ -35,13 +35,13 @@ function App() {
   const navigate = useNavigate()
 
   const getCities = async () => {
-    const response = await axios.get("http://localhost:5000/api/cities")
+    const response = await axios.get("https://tourist-cities-api.herokuapp.com/api/cities")
     setCities(response.data)
     console.log(response.data)
   }
 
   const getPlaces = async () => {
-    const response = await axios.get("http://localhost:5000/api/places")
+    const response = await axios.get("https://tourist-cities-api.herokuapp.com/api/places")
     setPlaces(response.data)
     setRestaurants(response.data.filter(place => place.type === "Restaurant"))
     setEvents(response.data.filter(place => place.type === "Event"))
@@ -63,7 +63,7 @@ function App() {
         password: form.elements.password.value,
         avatar: form.elements.avatar.value,
       }
-      await axios.post("http://localhost:5000/api/auth/singup", uesrBody)
+      await axios.post("https://tourist-cities-api.herokuapp.com/api/auth/singup", uesrBody)
       toast.success("signup success")
       navigate("/login")
     } catch (error) {
@@ -82,7 +82,7 @@ function App() {
         email: form.elements.email.value,
         password: form.elements.password.value,
       }
-      const response = await axios.post("http://localhost:5000/api/auth/login", uesrBody)
+      const response = await axios.post("https://tourist-cities-api.herokuapp.com/api/auth/login", uesrBody)
       const token = response.data
 
       localStorage.tokenCities = token
@@ -102,7 +102,7 @@ function App() {
   // ------------------------------------------profile-----------------------------------------
 
   const getProfile = async () => {
-    const response = await axios.get("http://localhost:5000/api/auth/profile", {
+    const response = await axios.get("https://tourist-cities-api.herokuapp.com/api/auth/profile", {
       headers: {
         Authorization: localStorage.tokenCities,
       },
@@ -123,7 +123,7 @@ function App() {
       }
 
       form.reset()
-      await axios.post(`http://localhost:5000/api/places/${placeId}/comments`, commentBody, {
+      await axios.post(`https://tourist-cities-api.herokuapp.com/api/places/${placeId}/comments`, commentBody, {
         headers: {
           Authorization: localStorage.tokenCities,
         },
@@ -138,7 +138,7 @@ function App() {
   //---------------------------------------------delete Comment--------------------------
   const deleteComment = async (placeId, commentId) => {
     console.log(placeId)
-    await axios.delete(`http://localhost:5000/api/places/${placeId}/comments/${commentId}`, {
+    await axios.delete(`https://tourist-cities-api.herokuapp.com/api/places/${placeId}/comments/${commentId}`, {
       headers: {
         Authorization: localStorage.tokenCities,
       },
@@ -151,7 +151,7 @@ function App() {
 
   const likeCity = async cityId => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/cities/${cityId}/likes`, {
+      const response = await axios.get(`https://tourist-cities-api.herokuapp.com/api/cities/${cityId}/likes`, {
         headers: {
           Authorization: localStorage.tokenCities,
         },
@@ -186,7 +186,7 @@ function App() {
       const ratingBody = {
         rating,
       }
-      await axios.post(`http://localhost:5000/api/places/${placeId}/ratings`, ratingBody, {
+      await axios.post(`https://tourist-cities-api.herokuapp.com/api/places/${placeId}/ratings`, ratingBody, {
         headers: {
           Authorization: localStorage.tokenCities,
         },
@@ -239,7 +239,7 @@ function App() {
         <Route path="/city/:cityId/Event" element={<EventsList />} />
         <Route path="/city/:cityId/Museum" element={<MuseumsList />} />
         <Route path="/city/:cityId/Hotel" element={<HotalsList />} />
-        <Route path ="city/:cityId/Mall"element={<MallList/>}/>
+        <Route path="city/:cityId/Mall" element={<MallList />} />
         <Route path="/city/:cityId/TouristPlace" element={<TouristPlaceList />} />
         <Route path="/Restaurant/:restaurantId/" element={<OnePlace />} />
         <Route path="/Event/:eventId/" element={<OnePlace />} />
@@ -253,7 +253,6 @@ function App() {
       </Routes>
       <div>
         {" "}
-      
         <Foter />
       </div>
     </CitiesContext.Provider>
