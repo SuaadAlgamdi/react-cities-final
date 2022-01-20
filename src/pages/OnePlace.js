@@ -148,7 +148,7 @@ function OnePlace() {
                   <Col md="10" style={{ marginTop: 30, fontSize: "25px" }}>
                     {comment.comment}
                   </Col>
-                  {profile?._id == comment.owner._id ? (
+                  {profile?._id == comment.owner?._id ? (
                     <Col>
                       <Button
                         className="ButtonSerchDeletComment"
